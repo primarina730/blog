@@ -1,0 +1,18 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+.blogTitle {
+  text-align: center;
+}
+
+.headerNavs {
+  display: flex;
+  white-space: nowrap;
+}
+
+.headerNavs li {
+  margin-left: 36px;
+}

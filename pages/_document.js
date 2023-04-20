@@ -11,7 +11,7 @@ export default function Document() {
           crossorigin
         ></link>
         <link
-          href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo|Nanum+Myeongjo&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap"
           rel="stylesheet"
         ></link>
       </Head>

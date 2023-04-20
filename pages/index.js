@@ -2,68 +2,79 @@ import Link from "next/link";
 import { client } from "../libs/client";
 import Moment from "react-moment";
 import img1 from "../public/images/img1.jpg";
+import img2 from "../public/images/inFrontOfCastle.jpg";
 import Image from "next/image";
+import Header from "./components/Header";
+import styles from "../styles/Home.module.css";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 //SSG
 export const getStaticProps = async () => {
   const data = await client.get({
     endpoint: "blog",
+    queries: {
+      limit: 5,
+    },
   });
 
-  const categoryData = await client.get({ endpoint: "categories" });
   const tagData = await client.get({ endpoint: "tags" });
 
   return {
     props: {
       blog: data.contents,
-      category: categoryData.contents,
       tag: tagData.contents,
     },
   };
 };
 
-export default function Home({ blog, category, tag }) {
+export default function Home({ blog, tag }) {
   return (
     <div>
-      <div className="styles.title">
-        <h1 className="blogTitle">Inside Emma's Case</h1>
-      </div>
-      {/* <ul>
-        {category.map((category) => (
-          <li key={category.id}>
-            <Link href={`/category/${category.id}`}>{category.name}</Link>
-          </li>
-        ))}
-      </ul> */}
-
-      <div className="screens">
-        <div className="leftScreen">
-          <Image src={img1} alt="img1" className="img1" />
+      <Header />
+      <div className={styles.screens}>
+        <div className={styles.leftScreen}>
+          <h2>About Me</h2>
+          <div className={styles.topImgs}>
+            <Image src={img2} className={styles.img1} />
+            <Image src={img1} className={styles.img2} />
+          </div>
+          <p>動物とピアノが好きです。</p>
+          <p>好奇心旺盛なので浅く広くブログを書いていきます。</p>
         </div>
-        <div className="rightScreen">
-          <div className="latests">
-            <h2 className="latestsTitle">Latest Columns</h2>
-            <div className="toLatests">
+        <div className={styles.rightScreen}>
+          <div className={styles.latests}>
+            <h2 className={styles.latestsTitle}>Latest Columns</h2>
+            <div>
               {blog.map((blog) => (
-                <li key={blog.id} className="eachLatests">
-                  <Moment format="M/D" className="date">
-                    <h2 className="date">{blog.publishedAt}</h2>
-                  </Moment>
+                <li key={blog.id}>
+                  <a>
+                    {dayjs
+                      .utc(blog.publishedAt)
+                      .tz("Asia/Tokyo")
+                      .format("YYYY MM/DD")}
+                  </a>
                   <Link href={`blog/${blog.id}`} legacyBehavior>
-                    <a href="">{blog.title}</a>
+                    <a href=""> {blog.title}</a>
                   </Link>
                 </li>
               ))}
             </div>
-            <button className="button">View more</button>
+            <a href="./WholeList" className={styles.button2}>
+              View more
+            </a>
           </div>
-          <div className="category">
-            <h2 className="categoryTitle">Tag</h2>
-            <div className="toCategories">
+          <div className={styles.tag}>
+            <h2 className={styles.tagTitle}>Tag</h2>
+            <div className={styles.toTags}>
               <ul>
                 {tag.map((tag) => (
                   <li key={tag.id}>
-                    <Link href={`/tag/${tag.id}`}>#{tag.name}</Link>
+                    <Link href={`/tag/${tag.id}`}>＃{tag.name}</Link>
                   </li>
                 ))}
               </ul>

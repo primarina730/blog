@@ -1,5 +1,13 @@
 import { client } from "@/libs/client";
 import Moment from "react-moment";
+import styles from "./blogId.module.css";
+import Header from "../components/Header";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 //SSG
 
@@ -27,13 +35,18 @@ export const getStaticPaths = async () => {
 export default function BlogId({ blog }) {
   return (
     <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
-      <p>{blog.category && blog.category.name}</p>
-      <div
-        dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
-        className="eachContents"
-      ></div>
+      <Header />
+      <div className="blogMain">
+        <h1 className={styles.blogTitle}>{blog.title}</h1>
+        <a>
+          {dayjs.utc(blog.publishedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}
+        </a>
+        <p>{blog.category && blog.category.name}</p>
+        <div
+          dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+          className={styles.bodyOfLetter}
+        ></div>
+      </div>
     </main>
   );
 }
