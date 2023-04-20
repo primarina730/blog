@@ -4,7 +4,5 @@ const nextConfig = {
 };
 
 module.exports = {
-  experimental: {
-    optimizeFonts: true,
-  },
+  optimizeFonts: true,
 };
