@@ -68,7 +68,7 @@ export default function Home({ blog, tag }) {
                 </li>
               ))}
             </div>
-            <a href="./WholeList" className={styles.button2}>
+            <a href="./WholeList" className={styles.button}>
               View more
             </a>
           </div>

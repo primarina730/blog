@@ -1,0 +1,34 @@
+.rtt {
+  text-align: right;
+}
+
+.button {
+  display: inline-block;
+  width: 100px;
+  /* padding: 10px 30px 10px 20px; */
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  background-color: darkgray;
+  color: black;
+  padding: 10px;
+}
+.button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(100% - 5px);
+  /* right: 20px; */
+  width: 30px;
+  height: 5px;
+  border: none;
+  border-right: 2px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: skew(45deg);
+  transition: 0.3s;
+}
+.button:hover::after {
+  width: 100%;
+}

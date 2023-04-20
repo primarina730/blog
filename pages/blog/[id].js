@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import ReturnToTop from "../components/ReturnToTop";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -46,6 +47,7 @@ export default function BlogId({ blog }) {
           dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
           className={styles.bodyOfLetter}
         ></div>
+        <ReturnToTop />
       </div>
     </main>
   );
