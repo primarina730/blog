@@ -40,8 +40,12 @@ export default function Home({ blog, tag }) {
         <div className={styles.leftScreen}>
           <h2>About Me</h2>
           <div className={styles.topImgs}>
-            <Image src={img2} className={styles.img1} />
-            <Image src={img1} className={styles.img2} />
+            <Image src={img2} className={styles.img1} alt="私と姉の写真" />
+            <Image
+              src={img1}
+              className={styles.img2}
+              alt="ディズニーランドの写真"
+            />
           </div>
           <p>動物とピアノが好きです。</p>
           <p>好奇心旺盛なので浅く広くブログを書いていきます。</p>
