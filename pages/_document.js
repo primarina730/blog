@@ -14,6 +14,16 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap"
           rel="stylesheet"
         ></link>
+        <title>Inside Emma's Case</title>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,shrink-to-fit=no"
+        />
+        <meta name="description" content="よくわからないブログ" />
+        <meta name="keywords" content="ブログ" />
+        <meta property="og:type" content="blog" />
+        <meta property="og:title" content="Inside Emma's Case" />
+        <meta property="og:description" content="ブログ" />
       </Head>
       <body>
         <Main />
