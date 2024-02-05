@@ -8,14 +8,7 @@ export default function Header() {
         <h1 className={styles.blogTitle}>Inside Emma&apos;s Case</h1>
       </Link>
       <nav>
-        <ul className={styles.headerNavs}>
-          <li>
-            <Link href="/">my portfolio</Link>
-          </li>
-          <li>
-            <Link href="/">contact</Link>
-          </li>
-        </ul>
+        <ul className={styles.headerNavs}></ul>
       </nav>
     </div>
   );

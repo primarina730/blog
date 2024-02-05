@@ -1,3 +1,15 @@
+.blogMain {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.bodyOfLetter img {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  padding: 5% 0;
+}
+
 .blogTitle {
   margin-top: 10px;
 }
@@ -6,6 +18,15 @@
   margin-top: 20px;
 }
 
-.blogMain {
-  margin: 0 auto;
+@media screen and (max-width: 768px) {
+  .blogMain {
+    width: 80%;
+  }
+
+  .bodyOfLetter img {
+    width: 200px;
+  }
+  .bodyOfLetter p {
+    font-size: 0.8rem;
+  }
 }

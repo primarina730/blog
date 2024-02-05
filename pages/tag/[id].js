@@ -2,6 +2,13 @@ import Link from "next/link";
 import { client } from "../../libs/client";
 import Header from "../components/Header";
 import styles from "./Tag.module.css";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import ReturnToTop from "../components/ReturnToTop";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default function TagId({ blog }) {
   // カテゴリーに紐付いたコンテンツがない場合に表示
@@ -16,15 +23,22 @@ export default function TagId({ blog }) {
   return (
     <div>
       <Header />
-      <h1>{blog.id}</h1>
       <div className={styles.tag}>
         <ul>
           {blog.map((blog) => (
             <li key={blog.id}>
-              <Link href={`/blog/${blog.id}`}>　{blog.title}</Link>
+              <Link href={`/blog/${blog.id}`}>
+                {" "}
+                {dayjs
+                  .utc(blog.publishedAt)
+                  .tz("Asia/Tokyo")
+                  .format("YYYY  MM/DD  ")}
+                {blog.title}
+              </Link>
             </li>
           ))}
         </ul>
+        <ReturnToTop />
       </div>
     </div>
   );
@@ -41,6 +55,7 @@ export const getStaticPaths = async () => {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context) => {
   const id = context.params.id;
+  const tagData = await client.get({ endpoint: "tags" });
   const data = await client.get({
     endpoint: "blog",
     queries: { filters: `tags[contains]${id}` },
@@ -49,6 +64,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       blog: data.contents,
+      tag: tagData.contents,
     },
   };
 };

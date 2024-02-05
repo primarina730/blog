@@ -56,14 +56,14 @@ export default function Home({ blog, tag }) {
             <div>
               {blog.map((blog) => (
                 <li key={blog.id}>
-                  <a>
-                    {dayjs
-                      .utc(blog.publishedAt)
-                      .tz("Asia/Tokyo")
-                      .format("YYYY MM/DD")}
-                  </a>
                   <Link href={`blog/${blog.id}`} legacyBehavior>
-                    <a href=""> {blog.title}</a>
+                    <a href="">
+                      {dayjs
+                        .utc(blog.publishedAt)
+                        .tz("Asia/Tokyo")
+                        .format("YYYY  MM/DD  ")}
+                      {blog.title}
+                    </a>
                   </Link>
                 </li>
               ))}

@@ -14,6 +14,8 @@
   background-color: darkgray;
   color: black;
   padding: 10px;
+  margin-bottom: 10%;
+  margin-top: 10%;
 }
 .button::after {
   content: "";

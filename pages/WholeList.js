@@ -5,6 +5,7 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import ReturnToTop from "./components/ReturnToTop";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -27,22 +28,24 @@ export default function WholeList({ blog }) {
       <Header />
 
       <div className={styles.latestsW}>
-        <h1 className={styles.latestsTitle}>All Columns</h1>
+        <h2 className={styles.latestsTitle}>All Columns</h2>
         <div className={styles.toLatestsW}>
           {blog.map((blog) => (
             <li key={blog.id}>
-              <a>
-                {dayjs
-                  .utc(blog.publishedAt)
-                  .tz("Asia/Tokyo")
-                  .format("YYYY MM/DD")}
-              </a>
               <Link href={`blog/${blog.id}`} legacyBehavior>
-                <a href=""> {blog.title}</a>
+                <a href="">
+                  {" "}
+                  {dayjs
+                    .utc(blog.publishedAt)
+                    .tz("Asia/Tokyo")
+                    .format("YYYY  MM/DD  ")}{" "}
+                  {blog.title}
+                </a>
               </Link>
             </li>
           ))}
         </div>
+        <ReturnToTop />
       </div>
     </div>
   );

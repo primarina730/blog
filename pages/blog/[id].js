@@ -37,12 +37,13 @@ export default function BlogId({ blog }) {
   return (
     <main>
       <Header />
-      <div className="blogMain">
-        <h1 className={styles.blogTitle}>{blog.title}</h1>
-        <a>
+      <div className={styles.blogMain}>
+        <h2 className={styles.blogTitle}>{blog.title}</h2>
+        <p>
           {dayjs.utc(blog.publishedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}
-        </a>
-        <p>{blog.category && blog.category.name}</p>
+          {blog.category && blog.category.name}
+        </p>
+
         <div
           dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
           className={styles.bodyOfLetter}

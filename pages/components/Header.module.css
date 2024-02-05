@@ -16,3 +16,15 @@
 .headerNavs li {
   margin-left: 36px;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    justify-content: space-between;
+    padding: 0%;
+    font-size: 0.8rem;
+    margin-left: 5%;
+  }
+  .headerNavs {
+    flex-direction: column;
+  }
+}

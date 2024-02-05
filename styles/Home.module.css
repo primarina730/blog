@@ -25,11 +25,12 @@
 }
 
 .screens {
-  width: 80%;
+  width: 60%;
   height: auto;
   margin-top: 30%;
   display: flex;
   margin: 0 auto;
+  gap: 10%;
 }
 
 .latests {
@@ -41,7 +42,7 @@
 }
 
 .toTags {
-  border: solid 1px;
+  border: solid 1px white;
   padding: 2%;
   /* overflow: scroll; */
 }
@@ -116,4 +117,55 @@
 }
 .topImgs:hover img:nth-of-type(2) {
   top: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .screens {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .screens h2 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .leftScreen {
+    margin: 0 auto;
+    padding-top: 3%;
+  }
+  .leftScreen p {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .topImgs {
+    margin: 0 auto;
+  }
+
+  .rightScreen {
+    padding-top: 10%;
+  }
+
+  .latests {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .latests li {
+    text-align: left;
+    font-size: 0.8rem;
+  }
+  .button {
+    margin-top: 5%;
+  }
+
+  .tag {
+    padding-top: 5%;
+  }
+
+  .toTags {
+    width: 75%;
+    margin: 0 auto;
+  }
 }

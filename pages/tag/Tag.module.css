@@ -1,6 +1,17 @@
-.tag li {
+.tag ul li {
   text-decoration: none;
   font-size: 20px;
   border-bottom: 1px solid;
   padding-top: 2%;
+}
+
+.tag {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .tag ul li {
+    font-size: 0.8rem;
+  }
 }

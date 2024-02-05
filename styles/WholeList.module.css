@@ -1,3 +1,8 @@
+.latestsW {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .latestsW a {
   font-size: 20px;
 }
@@ -5,4 +10,15 @@
 .toLatestsW li {
   border-bottom: 1px solid;
   padding-top: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .latestsW {
+    padding-top: 10%;
+
+    margin: 0 auto;
+  }
+  .toLatestsW li a {
+    font-size: 0.8rem;
+  }
 }

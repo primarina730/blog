@@ -1,10 +1,16 @@
 * {
-  margin: 0;
   background-color: black;
+}
+
+a,
+p,
+li,
+h1,
+h2,
+h3 {
   color: white;
   text-decoration: none;
   font-family: "Nanum Myeongjo", serif;
-  max-width: 960px;
 }
 
 html,
@@ -32,6 +38,8 @@ li {
   list-style: none;
 }
 
-.blogMain {
-  max-width: 800px;
+@media screen and (max-width: 768px) {
+  * {
+    max-width: 500px;
+  }
 }
