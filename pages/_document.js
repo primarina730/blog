@@ -11,7 +11,7 @@ export default function Document() {
         <meta name="description" content="よくわからないブログ" />
         <meta name="keywords" content="ブログ" />
         <meta property="og:type" content="blog" />
-        <meta property="og:title" content="Inside Emma's Case" />
+        <meta property="og:title" content="Inside Emmas Case" />
         <meta property="og:description" content="ブログ" />
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link
