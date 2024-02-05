@@ -27,7 +27,7 @@ export default function WholeList({ blog }) {
   return (
     <div>
       <Head>
-        <title>Inside Emmas Case 一覧</title>
+        <title>InsideEmmasCase 一覧</title>
       </Head>
       <Header />
 
