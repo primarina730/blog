@@ -35,21 +35,23 @@ export const getStaticPaths = async () => {
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <Header />
-      <div className={styles.blogMain}>
-        <h2 className={styles.blogTitle}>{blog.title}</h2>
-        <p>
-          {dayjs.utc(blog.publishedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}
-          {blog.category && blog.category.name}
-        </p>
+    <div>
+      <main>
+        <Header />
+        <div className={styles.blogMain}>
+          <h2 className={styles.blogTitle}>{blog.title}</h2>
+          <p>
+            {dayjs.utc(blog.publishedAt).tz("Asia/Tokyo").format("YYYY-MM-DD")}
+            {blog.category && blog.category.name}
+          </p>
 
-        <div
-          dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
-          className={styles.bodyOfLetter}
-        ></div>
-        <ReturnToTop />
-      </div>
-    </main>
+          <div
+            dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+            className={styles.bodyOfLetter}
+          ></div>
+          <ReturnToTop />
+        </div>
+      </main>
+    </div>
   );
 }

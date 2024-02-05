@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import ReturnToTop from "./components/ReturnToTop";
+import Head from "next/head";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -25,6 +26,9 @@ export const getStaticProps = async () => {
 export default function WholeList({ blog }) {
   return (
     <div>
+      <Head>
+        <title>Inside Emma's Case 一覧</title>
+      </Head>
       <Header />
 
       <div className={styles.latestsW}>

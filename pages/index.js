@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { client } from "../libs/client";
-import Moment from "react-moment";
 import img1 from "../public/images/img1.jpg";
 import img2 from "../public/images/inFrontOfCastle.jpg";
 import Image from "next/image";
@@ -9,6 +8,7 @@ import styles from "../styles/Home.module.css";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import Head from "next/head";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -35,6 +35,9 @@ export const getStaticProps = async () => {
 export default function Home({ blog, tag }) {
   return (
     <div>
+      <Head>
+        <title>Inside Emma's Case</title>
+      </Head>
       <Header />
       <div className={styles.screens}>
         <div className={styles.leftScreen}>
