@@ -36,7 +36,7 @@ export default function Home({ blog, tag }) {
   return (
     <div>
       <Head>
-        <title>Inside Emma's Case</title>
+        <title>Inside Emma&apos;s Case</title>
       </Head>
       <Header />
       <div className={styles.screens}>
